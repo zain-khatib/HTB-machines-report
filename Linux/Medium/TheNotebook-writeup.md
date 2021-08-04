@@ -8,7 +8,7 @@ Description: >-
 
 ## Overview
 
-![](./thenotebook-image.jpg)
+![](./images/thenotebook-image.jpg)
 
 Medium Linux machine that requires Web server JWT session based manipulation to get foothold and some enumeration to get user then a CVE for docker to get the root shell.
 
@@ -58,11 +58,12 @@ Service detection performed. Please report any incorrect results at https://nmap
 
 going to the website on port 80 we find the following page:
 
-![] (/images/website.png)
+
+![](/images/website.png)
 
 we register as `username : kingcobra`  `password: kingcobra` and `email : kingcobra@notebook.htb`
 
-![] (/images/website-login.png)
+![](/images/website-login.png)
 
 after loging we  are assigned the `auth JWT cookie` as:
 ``` text
@@ -211,11 +212,11 @@ opening webserver to the our RS256 private key using python3 web server `python3
 
 after replaceing the cookie with our crafted cookie we request the our home page to notice that the website has made a requset to our python3 server to get the private key 
 
-! [] (../images/key-request.png)
+![](../images/key-request.png)
 
 we notice that we have now a new admin panel tab in the navbar
 
-![] (../images/admin-panel.png)
+![](../images/admin-panel.png)
 
 ## FootHold
 
@@ -223,11 +224,11 @@ after going to the admin panel page we see that we can upload files to the serve
 
 we're going to try to upload a php rev shell to the site.
 
-! [] (./images/file-upload.png)
+![](./images/file-upload.png)
 
 starting a nc listner `nc -lvnp 1234` and pressing the view button => we have a revshell 
 
-! [] (./images/foothold.png)
+![](./images/foothold.png)
 
 ## Stablize Shell
 
@@ -241,7 +242,7 @@ stty raw -echo;fg
 
 looking at the notes we find an interesting note:
 
-! [] (./images/backups.png)
+![](./images/backups.png)
 
 going to the `/var/backups` directory we find:
 
