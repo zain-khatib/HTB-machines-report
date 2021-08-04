@@ -242,7 +242,7 @@ stty raw -echo;fg
 
 looking at the notes we find an interesting note:
 
-![](./images/backups.png)
+![](./images/backup.png)
 
 going to the `/var/backups` directory we find:
 
